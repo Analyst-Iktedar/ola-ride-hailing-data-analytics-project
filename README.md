@@ -62,75 +62,85 @@ All SQL queries were executed on Google BigQuery. Each query was implemented as 
 
 ### Sample Queries
 
-**1. Retrieve all successful bookings**
+**1. Retrieve all successful bookings:**
 ```sql
-CREATE VIEW `ola_project_dataset.Successful_Bookings` AS
-  SELECT * FROM `ola_project_dataset.bookings`
-  WHERE Booking_Status = 'Success';
+Create View ola_project_dataset.successful_bookings As
+SELECT * FROM ola_project_dataset.bookings
+WHERE booking_status = 'Success';
 ```
 
-**2. Find the average ride distance for each vehicle type**
+**2. Find the average ride distance for each vehicle type:**
 ```sql
-CREATE VIEW `ola_project_dataset.ride_distance_for_each_vehicle` AS
-  SELECT Vehicle_Type, AVG(Ride_Distance) AS avg_distance
-  FROM `ola_project_dataset.bookings`
-  GROUP BY Vehicle_Type;
+Create View ola_project_dataset.ride_distance_for_each_vehicle As
+SELECT vehicle_type, AVG(ride_distance)
+as avg_distance FROM ola_project_dataset.bookings
+GROUP BY vehicle_type;
 ```
 
-**3. Get the total number of cancelled rides by customers**
+**3. Get the total number of cancelled rides by customers:**
 ```sql
-CREATE VIEW `ola_project_dataset.Cancelled_Rides_By_Customers` AS
-  SELECT COUNT(*) FROM `ola_project_dataset.bookings`
-  WHERE Booking_Status = 'Cancelled by Customer';
+Create View ola_project_dataset.cancelled_rides_by_customers As
+SELECT COUNT(*) AS no_of_cancelled_rides FROM ola_project_dataset.bookings
+WHERE booking_status = 'Canceled by Customer';
 ```
 
-**4. List the top 5 customers by total number of rides booked**
+**4. List the top 5 customers who booked the highest number of rides:**
 ```sql
-CREATE VIEW `ola_project_dataset.Top_5_Customers` AS
-  SELECT Customer_ID, COUNT(Booking_ID) AS total_rides
-  FROM `ola_project_dataset.bookings`
-  GROUP BY Customer_ID
-  ORDER BY total_rides DESC LIMIT 5;
+Create View ola_project_dataset.top_5_customers As
+SELECT customer_id, COUNT(booking_id) as total_rides
+FROM ola_project_dataset.bookings
+GROUP BY customer_id
+ORDER BY total_rides DESC LIMIT 5;
 ```
 
-**5. Find the maximum and minimum driver ratings for Prime Sedan bookings**
+**5. Get the number of rides cancelled by drivers due to personal and car-related issues:**
 ```sql
-CREATE VIEW `ola_project_dataset.Max_Min_Driver_Rating` AS
-  SELECT MAX(Driver_Ratings) AS max_rating,
-         MIN(Driver_Ratings) AS min_rating
-  FROM `ola_project_dataset.bookings`
-  WHERE Vehicle_Type = 'Prime Sedan';
+Create View ola_project_dataset.rides_cancelled_by_drivers_p_c_issues As
+SELECT COUNT(*) AS no_of_cancelled_rides FROM ola_project_dataset.bookings
+WHERE canceled_rides_by_driver = 'Personal & Car related issue';
 ```
 
-**6. Retrieve all rides where payment was made using UPI**
+**6. Find the maximum and minimum driver ratings for Prime Sedan bookings:**
 ```sql
-CREATE VIEW `ola_project_dataset.UPI_Payment` AS
-  SELECT * FROM `ola_project_dataset.bookings`
-  WHERE Payment_Method = 'UPI';
+Create View ola_project_dataset.max_min_driver_rating As
+SELECT 
+  MAX(driver_ratings) as max_rating,
+  MIN(driver_ratings) as min_rating
+FROM 
+  ola_project_dataset.bookings 
+WHERE 
+  vehicle_type = 'Prime Sedan';
 ```
 
-**7. Find the average customer rating per vehicle type**
+**7. Retrieve all rides where payment was made using UPI:**
 ```sql
-CREATE VIEW `ola_project_dataset.AVG_Cust_Rating` AS
-  SELECT Vehicle_Type, AVG(Customer_Rating) AS avg_customer_rating
-  FROM `ola_project_dataset.bookings`
-  GROUP BY Vehicle_Type;
+Create View ola_project_dataset.upi_payment As
+SELECT * FROM ola_project_dataset.bookings
+WHERE payment_method = 'UPI';
 ```
 
-**8. Calculate total booking value of rides completed successfully**
+**8. Find the average customer rating per vehicle type:**
 ```sql
-CREATE VIEW `ola_project_dataset.total_successful_ride_value` AS
-  SELECT SUM(Booking_Value) AS total_successful_ride_value
-  FROM `ola_project_dataset.bookings`
-  WHERE Booking_Status = 'Success';
+Create View ola_project_dataset.avg_cust_rating As
+SELECT vehicle_type, AVG(customer_rating) as avg_customer_rating
+FROM ola_project_dataset.bookings
+GROUP BY vehicle_type;
 ```
 
-**9. List all incomplete rides along with the reason**
+**9. Calculate the total booking value of rides completed successfully:**
 ```sql
-CREATE VIEW `ola_project_dataset.Incomplete_Rides_Reason` AS
-  SELECT Booking_ID, Incomplete_Rides_Reason
-  FROM `ola_project_dataset.bookings`
-  WHERE Incomplete_Rides = 1;
+Create View ola_project_dataset.total_successful_ride_value As
+SELECT SUM(booking_value) as total_successful_ride_value
+FROM ola_project_dataset.bookings
+WHERE booking_status = 'Success';
+```
+
+**10. List all incomplete rides along with the reason:**
+```sql
+Create View ola_project_dataset.incomplete_rides_reason As
+SELECT booking_id, incomplete_rides_reason
+FROM ola_project_dataset.bookings
+WHERE incomplete_rides = true;
 ```
 
 > The full set of 20 queries is available in the `/sql` folder of this repository.
