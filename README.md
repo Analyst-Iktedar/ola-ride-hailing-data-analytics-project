@@ -1,10 +1,10 @@
-# 🚖 OLA: Ride-Hailing Data Analytics Project
+# OLA: Ride-Hailing Data Analytics Project
 
 > An end-to-end SQL and Tableau analytics project analyzing ride-hailing operations at OLA — covering booking trends, cancellation patterns, customer behavior, fleet performance, and driver ratings.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 OLA is one of India's largest ride-hailing platforms, operating across hundreds of cities and serving millions of customers daily. This project simulates a real-world data analyst role, exploring OLA's ride-hailing records to uncover actionable insights across five core business disciplines: utilization, cancellations, customer behavior, fleet & revenue, and analytics.
 
@@ -12,7 +12,7 @@ The dataset spans **103,024 total bookings** representing **₹56.53M in ride va
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 - Write advanced SQL queries using Google BigQuery
 - Design Tableau visualizations for data-driven storytelling
@@ -21,7 +21,7 @@ The dataset spans **103,024 total bookings** representing **₹56.53M in ride va
 
 ---
 
-## ❓ Business Questions Addressed
+## Business Questions Addressed
 
 The project answers **20 analytical questions** across five categories:
 
@@ -35,7 +35,7 @@ The project answers **20 analytical questions** across five categories:
 
 ---
 
-## 📂 Dataset
+## Dataset
 
 The dataset represents OLA's ride-hailing records for the month of July 2024. Each row captures the full lifecycle of a booking event from request through completion.
 
@@ -45,7 +45,7 @@ The dataset represents OLA's ride-hailing records for the month of July 2024. Ea
 
 ---
 
-## 🛠️ Tools & Technology Stack
+## Tools & Technology Stack
 
 | Tool | Role | Key Features Used |
 |---|---|---|
@@ -56,7 +56,7 @@ The dataset represents OLA's ride-hailing records for the month of July 2024. Ea
 
 ---
 
-## 🗂️ Business Problems & Solutions — SQL
+## Business Problems & Solutions — SQL
 
 All SQL queries were executed on Google BigQuery. Each query was implemented as a `CREATE VIEW` statement, making results reusable and queryable without re-running full base queries.
 
@@ -147,7 +147,7 @@ WHERE incomplete_rides = true;
 
 ---
 
-## 📊 Tableau Dashboard — Visualisations
+## Tableau Dashboard — Visualisations
 
 Five interactive dashboards were built in Tableau to surface the SQL findings visually. Dashboards translate results into intuitive charts that communicate operational insights without technical background.
 
@@ -171,7 +171,7 @@ Five interactive dashboards were built in Tableau to surface the SQL findings vi
 
 ---
 
-## 🔍 Key Insights & Findings
+## Key Insights & Findings
 
 ### Operational Performance
 - **Booking Status:** Complete driver-cancellation data is structured and processed by personal and related issues, providing a comprehensive view of fulfilled traffic.
@@ -188,7 +188,7 @@ Five interactive dashboards were built in Tableau to surface the SQL findings vi
 
 ---
 
-## 💡 Skills Demonstrated
+## Skills Demonstrated
 
 **SQL / Data Engineering**
 - Writing advanced analytical queries in BigQuery
@@ -205,7 +205,7 @@ Five interactive dashboards were built in Tableau to surface the SQL findings vi
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ola-ride-hailing-analytics/
@@ -228,7 +228,7 @@ ola-ride-hailing-analytics/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. **SQL Queries:** Import the dataset into Google BigQuery and run any `.sql` file from the `/sql` folder. Each query uses `CREATE VIEW` and can be executed independently.
 2. **Tableau Dashboard:** Open `OLA_Dashboard.twbx` in Tableau Desktop (version 2022.1+). Connect to the dataset if prompted.
@@ -236,7 +236,7 @@ ola-ride-hailing-analytics/
 
 ---
 
-## 👤 About
+## About
 
 **Iktedar Ahmed**
 Data Analytics Portfolio | Assam, India
@@ -249,6 +249,6 @@ Data Analytics Portfolio | Assam, India
 
 ---
 
-## 📄 License
+## License
 
 This project is for portfolio and educational purposes. The dataset used is anonymised and does not represent real OLA user data.
